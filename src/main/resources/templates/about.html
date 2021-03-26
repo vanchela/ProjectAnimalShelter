@@ -3,36 +3,17 @@
 <head th:replace="fragments/commons :: head"></head>
 
 <body>
-<header th:fragment="navigation">
-    <nav class="navbar navbar-expand-lg bg-nav rounded">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-            <ul class="navbar-nav row">
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5" sec:authorize="!isAuthenticated()"
-                       th:href="@{/users/login}">Login</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5" sec:authorize="!isAuthenticated()"
-                       th:href="@{/users/register}">Register</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-</header>
+<header th:replace="fragments/commons :: navigation"></header>
+<header th:replace="fragments/afterLog :: navAfterLog"></header>
 <main>
     <div class="container bg-transparent rounded mt-5 ">
         <hr class="my-3 bg-white w-50"/>
         <p class="h6" style="color: white">Four Paws Love is created in 2020 and is located in Sofia.</p>
         <p class="h6" style="color: white">Everyone is free to come to visit the animals and eventually to adopt one or more.</p>
-        <p class="h6" style="color: white">The working time is:</p>
-        <p class="h6" style="color: white">from Monday to Sunday - 8:00am - 21:00pm </p>
-        <p class="h6" style="color: white">The address where you can find us is:</p>
-        <p class="h6" style="color: white">Sofia, street "Sofia", 1000</p>
+        <p class="h6" style="color: red">The working time is:</p>
+        <p class="h6" style="color: red">from Monday to Sunday - 8:00am - 21:00pm </p>
+        <p class="h6" style="color: red">The address where you can find us is:</p>
+        <p class="h6" style="color: red">Sofia, street "Sofia", 1000</p>
         <p class="h6" style="color: white">Your little new friend is waiting for you! :)</p>
 
         <hr class="my-3 bg-white w-75" />
