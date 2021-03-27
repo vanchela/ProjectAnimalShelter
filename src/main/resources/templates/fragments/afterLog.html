@@ -6,24 +6,18 @@
             <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
                href="/about">About us</a>
 
-            <div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
-                <a class="nav-link dropdown-toggle text-white active h5" href="#" id="navbarDropdown"
-                   role="button" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Admin</a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Change role</a>
-                    <a class="dropdown-item" href="#">Add an animal</a>
-
-                </div>
-            </div>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
                th:href="@{/users/allAnimals}">All animals</a>
+
+            <a class="nav-link text-white active h5" sec:authorize="hasRole('ROLE_ADMIN')"
+               href="/roles/add">Change Role</a>
+
+            <a class="nav-link text-white active h5" sec:authorize="hasRole('ROLE_ADMIN')"
+               href="/animals/add">Add an animal</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +28,7 @@
                 <ul class="navbar-nav row">
                     <li class="nav-item col-md-4">
                         <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
-                           th:href="@{/users/logout}">Logout</a>
+                           th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
             </div>

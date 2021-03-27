@@ -5,6 +5,7 @@ import com.example.project.model.enums.RoleEnum;
 import com.example.project.model.service.UserRegistrationServiceModel;
 import com.example.project.repository.RoleRepository;
 import com.example.project.repository.UserRepository;
+import com.example.project.service.RoleService;
 import com.example.project.service.UserService;
 
 
@@ -16,6 +17,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
@@ -23,13 +26,15 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
     private final AnimalUserService animalUserService;
+    private final RoleService roleService;
 
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder, RoleRepository roleRepository, AnimalUserService animalUserService) {
+    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder, RoleRepository roleRepository, AnimalUserService animalUserService, RoleService roleService) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
         this.animalUserService = animalUserService;
+        this.roleService = roleService;
     }
 
     @Override
@@ -41,8 +46,8 @@ public class UserServiceImpl implements UserService {
     public void registerAndLoginUser(UserRegistrationServiceModel userServiceModel) {
         User newUser = modelMapper.map(userServiceModel,User.class);
         newUser.setPassword(passwordEncoder.encode(userServiceModel.getPassword()));
-        Role userRole = roleRepository.findByRole(RoleEnum.USER)
-                .orElseThrow(()-> new IllegalStateException("USER role not found!"));
+        Role userRole = roleRepository.findByRole(RoleEnum.USER);
+
 
         newUser.addRole(userRole);
         newUser = userRepository.save(newUser);
@@ -57,4 +62,24 @@ public class UserServiceImpl implements UserService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
+
+    @Override
+    public List<String> findAllUsernames() {
+        return userRepository.findAllUsernames();
+    }
+
+    @Override
+    public void addRole(String username, RoleEnum roleEnum) {
+        User user = userRepository.findByUsername(username).orElse(null);
+        if (user != null){
+            if (!user.getRoles().contains(roleRepository.findByRole(roleEnum))){
+              user.addRole(roleRepository.findByRole(roleEnum));
+              userRepository.save(user);
+            }
+        }
+
+
+    }
+
+
 }

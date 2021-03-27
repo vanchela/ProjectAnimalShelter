@@ -68,7 +68,7 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @PostMapping("/notSuccessfulLogin")
+    @PostMapping("/login-error")
     public String failedLogin(@ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                                       String username,
                               RedirectAttributes attributes) {
@@ -79,11 +79,14 @@ public class UserController {
         return "redirect:/users/login";
     }
 
-
     @GetMapping("/logout")
     public String logout(){
         return "index";
     }
+
+
+
+
 
 
 }
