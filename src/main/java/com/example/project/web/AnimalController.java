@@ -39,7 +39,7 @@ public class AnimalController {
         if (bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("animalBindingModel",animalBindingModel);
           redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.animalBindingModel",bindingResult);
-            return "redirect:animal-add";
+            return "redirect:/animals/add";
         }
 
         animalService.addAnimal(modelMapper.map(animalBindingModel, AnimalServiceModel.class));
