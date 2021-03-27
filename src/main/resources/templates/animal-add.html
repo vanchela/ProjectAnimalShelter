@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/afterLog :: navAfterLog"></header>
+<main>
+    <div class="row tm-mt-big justify-content-center">
+        <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12">
+            <div class="bg-white tm-block">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Add New Animal</h2>
+                    </div>
+                </div>
+                <div class="row mt-4 tm-edit-product-row">
+                    <div class="col-xl-7 col-lg-7 col-md-12">
+                        <form  th:action="@{/animals/add}" method="POST" th:object="${animalBindingModel}"
+                              class="tm-edit-product-form" >
+                            <div class="input-group mb-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                                    <input th:field="*{name}"  type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="input-group mb-3 justify-content-lg-start">
+                                <small th:if="${#fields.hasErrors('name')}" class="text-danger">Animal name should be more than 3 symbols</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Upload a photo</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                            </div>
+
+                            <div class="col">
+                                <label for="specie">Specie</label>
+                                <select th:field="*{specie}" name="specie" id="specie" class="custom-select">
+                                    <option value="" selected>Select specie</option>
+                                    <option th:each="s : ${T(com.example.project.model.enums.AnimalSpeciesEnum).values()}"
+                                            th:text="${s}" th:value="${s}">Specie</option>
+                                </select>
+
+
+                    </div>
+                            <div class="form-floating input-group mb-5">
+                                <label  for="floatingTextarea2"> <span class="input-group-text" id="description">Description</span></label>
+                                <textarea th:field="*{description}" class="form-control" placeholder="describe the animal in the best way :)" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <small  th:if="${#fields.hasErrors('description')}" class="text-danger" >Description should be more that 10 symbols long!</small>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span  class="input-group-text" id="age">Age</span>
+                                <input th:field="*{age}"  type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+
+                    <div class="input-group mb-3 justify-content-lg-start">
+                        <small th:if="${#fields.hasErrors('age')}" class="text-danger">Age should be a positive number!</small>
+                    </div>
+
+
+                            <div class="input-group mb-3">
+                                <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+                                    <button type="submit" class="btn btn-primary">Add
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 mx-auto mb-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/commons :: footer"></footer>
+</body>
+</html>
