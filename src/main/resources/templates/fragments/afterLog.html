@@ -11,7 +11,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
-               th:href="@{/users/allAnimals}">All animals</a>
+               th:href="@{/animals/all}">All animals</a>
 
             <a class="nav-link text-white active h5" sec:authorize="hasRole('ROLE_ADMIN')"
                href="/roles/add">Change Role</a>

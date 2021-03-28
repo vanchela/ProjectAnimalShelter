@@ -4,6 +4,7 @@ import com.example.project.model.entities.AnimalSpecie;
 import com.example.project.model.enums.AnimalSpeciesEnum;
 
 public class AnimalServiceModel {
+    private Long id;
     private String photo;
     private String name;
     private AnimalSpeciesEnum specie;
@@ -51,5 +52,13 @@ public class AnimalServiceModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
