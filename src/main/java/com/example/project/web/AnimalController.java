@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/animals")
@@ -37,7 +39,7 @@ public class AnimalController {
 
     @PostMapping("/add")
     public String addAnimalConfirm(@Valid AnimalBindingModel animalBindingModel,
-                                   BindingResult bindingResult, RedirectAttributes redirectAttributes){
+                                   BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException, SQLException {
         if (bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("animalBindingModel",animalBindingModel);
           redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.animalBindingModel",bindingResult);

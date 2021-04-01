@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+    username: root
+
+    password: '*5621a11fVanq)'
+    url: jdbc:mysql://localhost:3306/animal_shelter_project?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+  jpa:
+
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+servlet:
+  multipart:
+    max-file-size: 5MB
+    max-request-size: 5MB
+    enabled: true
+
+cloudinary:
+  cloud-name: djcgnqdw8
+  api-key: 379533441931282
+  api-secret: 8qxheiKYiGD4IvMN_wqP4pChHfc
+

@@ -5,8 +5,10 @@
 <body>
 <header th:replace="fragments/afterLog :: navAfterLog"></header>
 <main>
-    <h1 class="text-center mt-2"><span class="badge badge-pill badge-primary">Animals</span></h1>
-    <h1 class="text-center mt-2"><span class="badge badge-pill badge-primary" th:text="|Total count of animals in the shooter: *{animals.size()}|" ></span></h1>
+    <h3 class="text-center mt-2" style="color: white"><span class="text-center"  th:text="|Welcome to our full list of the animals! The total count of animals in the shooter now is exactly: *{animals.size()}.|" ></span></h3>
+    <h3 class="text-center mt-2" style="color: white"><span class="text-center" th:text="|Take a look and choose!|" ></span></h3>
+    <h3 class="text-center mt-2" style="color: white"><span class="text-center" th:text="|If you decise you can come and visit us|" ></span></h3>
+
     <hr class="hr-3"/>
     <div class="container-fluid">
     <div th:each="a : ${animals}" th:object="${a}" class="offers row mx-auto d-flex flex-row justify-content-center">

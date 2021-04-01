@@ -3,6 +3,7 @@ package com.example.project.model.binding;
 import com.example.project.model.entities.AnimalSpecie;
 import com.example.project.model.enums.AnimalSpeciesEnum;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class AnimalBindingModel {
-    private String photo;
+    private MultipartFile photo;
     private String name;
     private AnimalSpeciesEnum specie;
     private int age;
@@ -19,11 +20,11 @@ public class AnimalBindingModel {
     public AnimalBindingModel() {
     }
 
-    public String getPhoto() {
+    public MultipartFile getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(MultipartFile photo) {
         this.photo = photo;
     }
 

@@ -1,5 +1,7 @@
 package com.example.project.model.entities;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,7 +19,7 @@ public class Animal extends BaseEntity {
     public Animal() {
     }
 
-    @Column(columnDefinition = "BLOB")
+
     public String getPhoto() {
         return photo;
     }

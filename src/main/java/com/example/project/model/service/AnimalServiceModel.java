@@ -1,11 +1,11 @@
 package com.example.project.model.service;
 
-import com.example.project.model.entities.AnimalSpecie;
 import com.example.project.model.enums.AnimalSpeciesEnum;
+import org.springframework.web.multipart.MultipartFile;
 
 public class AnimalServiceModel {
     private Long id;
-    private String photo;
+    private MultipartFile photo;
     private String name;
     private AnimalSpeciesEnum specie;
     private int age;
@@ -14,11 +14,11 @@ public class AnimalServiceModel {
     public AnimalServiceModel() {
     }
 
-    public String getPhoto() {
+    public MultipartFile getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(MultipartFile photo) {
         this.photo = photo;
     }
 
