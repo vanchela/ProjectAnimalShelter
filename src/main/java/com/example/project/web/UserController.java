@@ -79,15 +79,7 @@ public class UserController {
         return "redirect:/users/login";
     }
 
-    @GetMapping("/logout")
-    public String logout(){
-        return "redirect:/";
-    }
 
-    @PostMapping("/logout")
-    public String logoutConfirm(){
-        return "redirect:/";
-    }
 
 
 
