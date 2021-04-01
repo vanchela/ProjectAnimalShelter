@@ -49,12 +49,8 @@ public class AnimalController {
         return "redirect:/home";
     }
 
-    @GetMapping("/all")
-   public ModelAndView all(ModelAndView modelAndView){
-        modelAndView.addObject("animals", animalService.findAllAnimals());
-        modelAndView.setViewName("animals-all");
-        return modelAndView;
-    }
+
+
 
 
 }

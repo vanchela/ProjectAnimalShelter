@@ -81,11 +81,13 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout(){
-        return "index";
+        return "redirect:/";
     }
 
-
-
+    @PostMapping("/logout")
+    public String logoutConfirm(){
+        return "redirect:/";
+    }
 
 
 

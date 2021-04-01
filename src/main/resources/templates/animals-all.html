@@ -15,7 +15,8 @@
         <div class="card-body">
             <h5 class="card-title text-white" th:text="*{name}"></h5>
             <p class="card-text text-white" th:text="*{description}"></p>
-            <a href="#" class="btn btn-primary">Adopt :)</a>
+            <p class="card-text text-white" th:text="|Age: *{age} years|"></p>
+            <a th:href="@{/allAnimals/adopt/(id = *{id})}" class="btn btn-primary">Adopt :)</a>
         </div>
     </div>
     </div>

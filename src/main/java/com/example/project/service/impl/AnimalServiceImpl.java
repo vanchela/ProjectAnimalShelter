@@ -42,5 +42,13 @@ public class AnimalServiceImpl implements AnimalService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public AnimalViewModel findById(Long id) {
+        return animalRepository.findById(id)
+                .map(a-> this.modelMapper
+                        .map(a,AnimalViewModel.class))
+                .orElse(null);
+    }
+
 
 }

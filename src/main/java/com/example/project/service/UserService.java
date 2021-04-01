@@ -18,4 +18,7 @@ public interface UserService {
 
 
     void addRole(String username, RoleEnum valueOf);
+
+
+
 }

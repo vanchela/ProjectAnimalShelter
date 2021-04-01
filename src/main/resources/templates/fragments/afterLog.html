@@ -11,7 +11,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
-               th:href="@{/animals/all}">All animals</a>
+               th:href="@{/allAnimals/all}">All animals</a>
 
             <a class="nav-link text-white active h5" sec:authorize="hasRole('ROLE_ADMIN')"
                href="/roles/add">Change Role</a>
@@ -28,7 +28,7 @@
                 <ul class="navbar-nav row">
                     <li class="nav-item col-md-4">
                         <a class="nav-link text-white active h5" sec:authorize="isAuthenticated()"
-                           th:href="@{/logout}">Logout</a>
+                           th:href="@{/logout}" th:method="POST">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
     private final AnimalUserService animalUserService;
     private final RoleService roleService;
 
+
     public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder, RoleRepository roleRepository, AnimalUserService animalUserService, RoleService roleService) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
@@ -35,6 +36,7 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
         this.animalUserService = animalUserService;
         this.roleService = roleService;
+
     }
 
     @Override
@@ -80,6 +82,8 @@ public class UserServiceImpl implements UserService {
 
 
     }
+
+
 
 
 }
