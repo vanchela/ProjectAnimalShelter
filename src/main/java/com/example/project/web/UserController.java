@@ -4,8 +4,6 @@ import com.example.project.model.binding.UserRegistrationBindingModel;
 import com.example.project.model.service.UserRegistrationServiceModel;
 import com.example.project.service.UserService;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -36,13 +34,15 @@ public class UserController {
 
 
     @GetMapping("/login")
-   public String login(){
-        return "login";
+   public ModelAndView login(ModelAndView modelAndView){
+        modelAndView.setViewName("login");
+        return modelAndView;
     }
 
     @GetMapping("/register")
-    public String register(){
-        return "register";
+    public ModelAndView register(ModelAndView modelAndView){
+        modelAndView.setViewName("register");
+        return modelAndView;
     }
 
     @PostMapping("/register")

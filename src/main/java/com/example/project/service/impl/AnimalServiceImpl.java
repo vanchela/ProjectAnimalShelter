@@ -60,5 +60,10 @@ public class AnimalServiceImpl implements AnimalService {
                 .orElse(null);
     }
 
+    @Override
+    public Animal getAnimal(Animal animal) {
+        return animalRepository.findByName(animal.getName());
+    }
+
 
 }

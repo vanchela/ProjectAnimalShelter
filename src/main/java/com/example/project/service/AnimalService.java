@@ -1,5 +1,6 @@
 package com.example.project.service;
 
+import com.example.project.model.entities.Animal;
 import com.example.project.model.service.AnimalServiceModel;
 import com.example.project.model.view.AnimalViewModel;
 
@@ -16,4 +17,6 @@ public interface AnimalService {
     List<AnimalViewModel> findAllAnimals();
 
     AnimalViewModel findById(Long id);
+
+    Animal getAnimal(Animal animal);
 }
